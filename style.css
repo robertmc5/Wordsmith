@@ -7,15 +7,29 @@
 body {
   width: 100%;
   height: 100vh;
-  background-color: #44804C;
+  background-color: #041e34;
   color: white;
   font-family: "Segoe UI", sans-serif;
+  display: flex;
+  max-width: 1280px;
+  min-width: 320px;
+  margin-inline: auto;
 }
 
-/* Elements and IDs*/
+/* Elements, Classes and IDs*/
 h1 {
   font-weight: 500;
   line-height: 2;
+}
+
+h2 {
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #fbf05b;
+  text-align: center;
+  letter-spacing: 1px;
+  text-shadow: 2px 2px 2px #ABA104;
+  margin-bottom: 2rem;
 }
 
 #input {
@@ -28,25 +42,71 @@ h1 {
 #submit-btn {
   width: 3rem;
   height: 2.25rem;
-  background: linear-gradient(135deg, rgba(8, 59, 102, 75%) 0%, rgba(8, 59, 102, 100%) 100%);
+  background: linear-gradient(135deg, rgba(68, 128, 76, 75%) 0%, rgba(68, 128, 76, 100%) 100%);
   border-radius: 3px;
   border: none;
-  color: #ABA104;
+  color: #fff;
   font-size: 1.25rem;
   line-height: 1;
 }
 
 #submit-btn:hover {
-  background: #041e34;
+  background: #44804C;
   cursor: pointer;
 }
 
+#submit-btn:active {
+  box-shadow: inset 2px 2px 2px #37683d, inset -2px -2px 2px #4f9659;
+}
+
+#output > p:first-child {                                                   /* display with results */
+  font-weight: 600;
+  margin: 8px 0 21px 0;
+}
+
+#output > ol {                                                              /* display with results */
+  text-align: left;
+  margin-left: 2rem;
+}
+
+.panel {
+  width: 272px;
+  height: 105px;
+  border-radius: 0.625rem;
+  background-color: #44804C;
+  color: #fbf05b;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0 1.5rem 3rem 1.5rem;
+}
+
+#active {                                                         /* TEMP CLASS TO DEMO ACTIVE COLORING */
+  background-color: #ABA104;
+  color: #041e34;
+}
+
+.panel > p {
+  line-height: 2;
+}
+
+.panel > p:first-child {
+  font-weight: 600;
+
+}
+
+.panel > p:last-child {
+  font-style: italic;
+  font-weight: 200;
+}
+
 /* Containers */
-#i-o {
-  width: 320px;
+#io {
+  flex-basis: 320px;
+  flex-shrink: 0;
   padding: 1rem;
   text-align: center;
-
 }
 
 form {
@@ -57,115 +117,30 @@ form {
 
 #output {
   width: 100%;
-  height: 294px;
-  background-color: #041e34;
+  height: 386px;
   margin-top: 2rem;
+  border: thin solid #fff;
 }
+
+#features {
+  width: 100%;
+  padding-top: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.panels {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+
+
 
 
 
 /* 
-header {
-  text-align: center;
-  background-color: #ef6b68;
-  padding: 10px;
-}
-
-main {
-  background-color: #ef6b68;
-  height: 900px;
-  text-align: center;
-}
-
-h1 {
-  height: 38px;
-  font-family: Work Sans, sans-serif;
-  font-size: 32px;
-  font-weight: 200;
-  letter-spacing: 0.6px;
-  text-align: center;
-  color: #1f233e;
-  padding-top: 40px;
-  margin: 0;
-}
-
-.logo {
-  width: 110px;
-  height: 28px;
-  margin-top: 40px;
-  object-fit: contain;
-}
-
-.container {
-  width: 400px;
-  margin: auto;
-  text-align: center;
-}
-
-#input {
-  width: 219px;
-  height: 37px;
-  border-radius: 3.2px;
-  border: solid 0.8px #1f233e;
-  background-color: inherit;
-  display: block;
-  margin: auto;
-  margin-top: 10px;
-  font-family: Source Sans Pro;
-  font-size: 14px;
-  letter-spacing: 0.2px;
-  text-align: center;
-  color: #ffffff;
-}
-
-#submit {
-  width: 125px;
-  height: 30px;
-  border-radius: 2px;
-  border-color: inherit;
-  background-color: #1f233e;
-  margin: 30px 10% 0 25%;
-  font-family: Work Sans, sans-serif;
-  font-size: 16px;
-  font-weight: 500;
-  letter-spacing: 0.3px;
-  text-align: center;
-  color: #ef6b68;
-}
-
-#responseField {
-  min-width: 191px;
-  min-height: 120px;
-  background-color: #1f233e;
-  margin: auto;
-  margin-top: 25px;
-  font-family: Source Sans Pro;
-  font-weight: 400;
-  font-size: 14px;
-  letter-spacing: 0.2px;
-  text-align: center;
-  color: #ffffff;
-  overflow-wrap: break-word;
-  padding: 20px;
-}
-
-li {
-  text-align: center;
-  margin: 0 25% 0 25%;
-}
-
-#submit:hover, #toggle:hover{
-  color: #ffffff;
-  cursor: pointer;
-}
-
-#submit:active, #toggle:active{
-  background-color: #ffffff;
-  border-color: #ffffff;
-  color: #ef6b68;
-  cursor: pointer;
-}
-
 #shorten {
   visibility: hidden;
 }
