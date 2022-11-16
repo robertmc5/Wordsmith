@@ -59,12 +59,12 @@ h2 {
   box-shadow: inset 2px 2px 2px #37683d, inset -2px -2px 2px #4f9659;
 }
 
-#output > p:first-child {                                                   /* display with results */
+#output > p:first-child {
   font-weight: 600;
   margin: 8px 0 21px 0;
 }
 
-#output > ol {                                                              /* display with results */
+#output > ol {                                                              /* TODO - adjust margin-left ? */
   text-align: left;
   margin-left: 2rem;
 }
@@ -120,6 +120,7 @@ form {
   height: 386px;
   margin-top: 2rem;
   border: thin solid #fff;
+  overflow: hidden;
 }
 
 #features {
@@ -134,28 +135,3 @@ form {
   justify-content: space-evenly;
   flex-wrap: wrap;
 }
-
-
-
-
-
-
-/* 
-#shorten {
-  visibility: hidden;
-}
-
-#toggle {
-  width: max-content;
-  height: 30px;
-  border-radius: 2px;
-  border-color: inherit;
-  background-color: #1f233e;
-  margin: 30px;
-  font-family: Work Sans, sans-serif;
-  font-size: 16px;
-  font-weight: 500;
-  letter-spacing: 0.3px;
-  text-align: center;
-  color: #ef6b68;
-} */
