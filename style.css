@@ -29,7 +29,7 @@ h2 {
   text-align: center;
   letter-spacing: 1px;
   text-shadow: 2px 2px 2px #ABA104;
-  margin-bottom: 2rem;
+  margin: 2rem 0 2.5rem 0;
 }
 
 #input {
@@ -101,6 +101,13 @@ h2 {
   font-weight: 200;
 }
 
+.panel select, .panel input {
+  padding: 0.25rem 0.25rem;
+  background-color: #37683d;
+  font-weight: 500;
+  color: #fbf05b;
+}
+
 /* Containers */
 #io {
   flex-basis: 320px;
@@ -135,3 +142,21 @@ form {
   justify-content: space-evenly;
   flex-wrap: wrap;
 }
+
+/* Medium devices */
+@media only screen and (max-width: 1279px) {
+  .panel {
+    margin: 0 1.5rem 1.25rem 1.5rem;
+  }
+} 
+
+/* Small devices */
+@media only screen and (max-width: 639px) {
+  body {
+    flex-direction: column;
+    max-width: 320px;
+  }
+  h2 {
+    margin: 0 0 1.25rem 0;
+  }
+} 

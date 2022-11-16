@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="./favicon.png">
   <title>Wordsmith</title>
   <link id="css" rel="stylesheet" type="text/css" href="./style.css" />
   <script src="./main.js" async></script>
@@ -29,20 +30,111 @@
     <h2>Choose word feature</h2>
     <div class="panels">
       <div class="panel" id="active">         <!-- TEMP CLASS TO DEMO ACTIVE COLORING -->
-        <p>similar meaning, synonym</p>
+        <p>similar meaning or synonym</p>
         <p>hope ➔ desire</p>
       </div>
       <div class="panel">
+        <p>words strongly associated with</p>
+        <p>desk ➔ drawer</p>
+      </div>
+      <div class="panel">      			   <!-- rel_[code] - REQUIRES DROPDOWN -->
+        <p>words related and start with letter</p>
+        <select name="letter" id="selectLetter">
+          <option value="">letter</option>
+          <option value="a">A</option>
+          <option value="b">B</option>
+          <option value="c">C</option>
+          <option value="d">D</option>
+          <option value="e">E</option>
+          <option value="f">F</option>
+          <option value="g">G</option>
+          <option value="h">H</option>
+          <option value="i">I</option>
+          <option value="j">J</option>
+          <option value="k">K</option>
+          <option value="l">L</option>
+          <option value="m">M</option>
+          <option value="n">N</option>
+          <option value="o">O</option>
+          <option value="p">P</option>
+          <option value="q">Q</option>
+          <option value="r">R</option>
+          <option value="s">S</option>
+          <option value="t">T</option>
+          <option value="u">U</option>
+          <option value="v">V</option>
+          <option value="w">W</option>
+          <option value="x">X</option>
+          <option value="y">Y</option>
+          <option value="z">Z</option>
+        </select>
+        <p>hope + [a] ➔ aim</p>
+      </div>
+      <div class="panel">      			   <!-- rel_[code] - REQUIRES DROPDOWN -->
+        <p>words related and end with letter</p>
+        <select name="letter" id="selectLetter">
+          <option value="">letter</option>
+          <option value="a">A</option>
+          <option value="b">B</option>
+          <option value="c">C</option>
+          <option value="d">D</option>
+          <option value="e">E</option>
+          <option value="f">F</option>
+          <option value="g">G</option>
+          <option value="h">H</option>
+          <option value="i">I</option>
+          <option value="j">J</option>
+          <option value="k">K</option>
+          <option value="l">L</option>
+          <option value="m">M</option>
+          <option value="n">N</option>
+          <option value="o">O</option>
+          <option value="p">P</option>
+          <option value="q">Q</option>
+          <option value="r">R</option>
+          <option value="s">S</option>
+          <option value="t">T</option>
+          <option value="u">U</option>
+          <option value="v">V</option>
+          <option value="w">W</option>
+          <option value="x">X</option>
+          <option value="y">Y</option>
+          <option value="z">Z</option>
+        </select>
+        <p>hope + [a] ➔ plea</p>
+      </div>
+      <div class="panel">
+        <p>more specific related examples</p>
+        <p>automobile ➔ taxi</p>
+      </div>
+      <div class="panel">
+        <p>kind of generally</p>
+        <p>taxi ➔ automobile</p>
+      </div>
+      <div class="panel">
+        <p>comprises a part of</p>
+        <p>bicycle ➔ handlebar</p>
+      </div>
+      <div class="panel">
         <p>adjectives used to describe</p>
-        <p>hope ➔ fervant</p>
+        <p>banana ➔ ripe</p>
+      </div>
+      <div class="panel">
+        <p>adjectives describing .. related to</p>
+        <input type="text" name="relatedWord" id="relatedWord" value="">
+        <p>sky + [weather] ➔ stormy</p>
+      </div>
+      <div class="panel">
+        <p>nouns described by adjective</p>
+        <p>red ➔ wine</p>
+      </div>
+      <div class="panel">
+        <p>words that sound like</p>
+        <p>hope ➔ hoop</p>
       </div>
       <div class="panel">
         <p>words that rhyme with</p>
-        <p>hope ➔ nope</p>
-      </div>
-      <div class="panel">
-        <p>words strongly associated with</p>
-        <p>hope ➔ only</p>
+        <p>hope ➔ cope</p>
       </div>
     </div>
   </section>

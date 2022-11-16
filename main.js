@@ -7,7 +7,7 @@ const btnInput = document.getElementById('submit-btn');
 const display = document.getElementById('output');
 
 // Specific functions of Datamuse API
-const queryType = 'ml=';                                     /* Initally just one .. TODO expand to many */
+const queryType = 'rel_trg=';                                     /* Initally just one .. TODO expand to many */
 
 // Async function to GET result suggestions from API
 const getSuggestions = async () => {
