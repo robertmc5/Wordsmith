@@ -107,6 +107,10 @@ h2 {
   color: #fbf05b;
 }
 
+#relWord {
+  max-width: 153px;
+}
+
 /* Containers */
 #io {
   flex-basis: 320px;
