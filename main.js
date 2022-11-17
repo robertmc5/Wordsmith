@@ -6,12 +6,13 @@ const wordInput = document.getElementById('input');
 const btnInput = document.getElementById('submit-btn');
 const display = document.getElementById('output');
 const panels = Array.from(document.getElementsByClassName('panel'));
-// Special panel DOM selectors
+// DOM selectors for panels with 2nd parameters
+let current;
 const relStart = document.getElementById('relStart');
 const relEnd = document.getElementById('relEnd');
 const relWord = document.getElementById('relWord');
 
-// Specific functions of Datamuse API
+// Specific functional string queries and secondary input for Datamuse API
 let queryType = '';
 let query2nd = '';
 let auxInput = '';
@@ -20,7 +21,6 @@ let auxInput = '';
 const getSuggestions = async () => {
   let wordQuery = wordInput.value;
   const endpoint = urlAPI + queryType + wordQuery + query2nd + auxInput;
-  console.log('ENDPOINT ' + endpoint);                                        /* TEST */
   try {
     const response = await fetch(endpoint);
     if (response.ok) {
@@ -36,7 +36,7 @@ const getSuggestions = async () => {
   }
 }
 
-// Render error
+// Render error if needed
 const renderError = error => {
   let message = document.createElement('p');
   message.innerHTML = error;
@@ -65,13 +65,12 @@ const renderResults = APIresponse => {
 
 // Select panel to choose word feature
 const selectPanel = (event) => {
-  let current = event.currentTarget;
-  console.log('CLICK feature PANEL at ' + event.currentTarget);                                /* TEST */
+  current = event.currentTarget;
   panels.forEach(panel => {
     panel.setAttribute('style', 'background-color: #44804C; color: #fbf05b;'); 
   });
-  current.setAttribute('style', 'background-color: #ABA104; color: #041e34;');        /* TODO */
-  queryType = current.getAttribute('data-feat');                    /* TODO - queryType via data-* */
+  current.setAttribute('style', 'background-color: #ABA104; color: #041e34;');
+  queryType = current.getAttribute('data-feat');
   query2nd = current.getAttribute('data-2nd');
   if (query2nd === '&sp=*') auxInput = current.querySelector('select').value;
   if (query2nd === '&sp=') auxInput = current.querySelector('select').value + '*';
@@ -80,17 +79,34 @@ const selectPanel = (event) => {
     query2nd = '';
     auxInput = '';
   }
-  console.log('query2nd at ' + query2nd + ' ' + auxInput);                                /* TEST */
 }
 
-// Clear past results in output display area then call API functionality
+// Check if 2nd parameter is expected
+const check2ndParameters = () => {
+  if (query2nd) {
+    if (!auxInput || auxInput === '*') {
+      current.setAttribute('style', 'background-color: #FF4500; color: #041e34;');
+      let message = document.createElement('p');
+      message.style.paddingLeft = '2rem';
+      message.style.textAlign = 'left';
+      message.style.fontWeight = '600';
+      message.innerHTML = 'Please select a value to<br>include with that feature.';
+      display.appendChild(message);
+      return false;
+    }
+  }
+  return true;
+};
+
+// Clear past results in output display area, check for 2nd parameters, then call API functionality
 const displayResults = (event) => {
   event.preventDefault();
   if (display.lastChild) {
     display.removeChild(display.lastChild);
   }
-  if (query2nd === '&topics=') auxInput = document.getElementById('relWord').value;           /* TEST */     
-  getSuggestions();
+  if (query2nd === '&topics=') auxInput = document.getElementById('relWord').value;
+  let valid = check2ndParameters();
+  if (valid) getSuggestions();
 }
 
 // Register click event listener on word feature panels
@@ -98,7 +114,7 @@ panels.forEach(panel => {
   panel.addEventListener('click', selectPanel);
 });
 
-// Register Enter key event listener on text input for panel
+// Register Enter key event listener on text input for 2nd parameter panel
 const enterKey = (e) => {
   if (e.key === 'Enter') {
     auxInput = e.target.value;
@@ -110,5 +126,5 @@ relWord.addEventListener('keydown', enterKey);
 // Register click event listener on word query button
 btnInput.addEventListener('click', displayResults);
 
-// Set default event for initially selected word feature panel
+// Create default event to initially select default word feature panel
 document.getElementById('default').dispatchEvent(new Event('click'));
