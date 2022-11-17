@@ -82,9 +82,8 @@ h2 {
   margin: 0 1.5rem 3rem 1.5rem;
 }
 
-#active {                                                         /* TEMP CLASS TO DEMO ACTIVE COLORING */
-  background-color: #ABA104;
-  color: #041e34;
+.panel:hover {
+  cursor: pointer;
 }
 
 .panel > p {

@@ -5,6 +5,7 @@ const urlAPI = 'https://api.datamuse.com/words?';
 const wordInput = document.getElementById('input');
 const btnInput = document.getElementById('submit-btn');
 const display = document.getElementById('output');
+const panels = Array.from(document.getElementsByClassName('panel'));
 
 // Specific functions of Datamuse API
 const queryType = 'rel_trg=';                                     /* Initally just one .. TODO expand to many */
@@ -55,6 +56,15 @@ const renderResults = APIresponse => {
   return;
 }
 
+// Select panel to choose word feature
+const selectPanel = (event) => {
+  console.log('CLICK feature PANEL at ' + event.currentTarget);                                /* TEST */
+  panels.forEach(panel => {
+    panel.setAttribute('style', 'background-color: #44804C; color: #fbf05b;'); 
+  });
+  event.currentTarget.setAttribute('style', 'background-color: #ABA104; color: #041e34;');        /* TODO */
+}
+
 // Clear past results in output display area
 const displayResults = (event) => {
   event.preventDefault();
@@ -64,5 +74,13 @@ const displayResults = (event) => {
   getSuggestions();
 }
 
+// Register event listener on word feature panels
+panels.forEach(panel => {
+  panel.addEventListener('click', selectPanel);
+});
+
 // Register event listener on word query button
 btnInput.addEventListener('click', displayResults);
+
+// Set default event for initially selected word feature panel
+document.getElementById('default').dispatchEvent(new Event("click"));
