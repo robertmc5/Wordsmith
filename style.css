@@ -29,7 +29,7 @@ h2 {
   text-align: center;
   letter-spacing: 1px;
   text-shadow: 2px 2px 2px #ABA104;
-  margin-bottom: 2rem;
+  margin: 2rem 0 2.5rem 0;
 }
 
 #input {
@@ -59,12 +59,12 @@ h2 {
   box-shadow: inset 2px 2px 2px #37683d, inset -2px -2px 2px #4f9659;
 }
 
-#output > p:first-child {                                                   /* display with results */
+#output > p:first-child {
   font-weight: 600;
   margin: 8px 0 21px 0;
 }
 
-#output > ol {                                                              /* display with results */
+#output > ol {                                                              /* TODO - adjust margin-left ? */
   text-align: left;
   margin-left: 2rem;
 }
@@ -82,9 +82,8 @@ h2 {
   margin: 0 1.5rem 3rem 1.5rem;
 }
 
-#active {                                                         /* TEMP CLASS TO DEMO ACTIVE COLORING */
-  background-color: #ABA104;
-  color: #041e34;
+.panel:hover {
+  cursor: pointer;
 }
 
 .panel > p {
@@ -99,6 +98,17 @@ h2 {
 .panel > p:last-child {
   font-style: italic;
   font-weight: 200;
+}
+
+.panel select, .panel input {
+  padding: 0.25rem 0.25rem;
+  background-color: #37683d;
+  font-weight: 500;
+  color: #fbf05b;
+}
+
+#relWord {
+  max-width: 153px;
 }
 
 /* Containers */
@@ -120,6 +130,7 @@ form {
   height: 386px;
   margin-top: 2rem;
   border: thin solid #fff;
+  overflow: hidden;
 }
 
 #features {
@@ -135,27 +146,20 @@ form {
   flex-wrap: wrap;
 }
 
+/* Medium devices */
+@media only screen and (max-width: 1279px) {
+  .panel {
+    margin: 0 1.5rem 1.25rem 1.5rem;
+  }
+} 
 
-
-
-
-
-/* 
-#shorten {
-  visibility: hidden;
-}
-
-#toggle {
-  width: max-content;
-  height: 30px;
-  border-radius: 2px;
-  border-color: inherit;
-  background-color: #1f233e;
-  margin: 30px;
-  font-family: Work Sans, sans-serif;
-  font-size: 16px;
-  font-weight: 500;
-  letter-spacing: 0.3px;
-  text-align: center;
-  color: #ef6b68;
-} */
+/* Small devices */
+@media only screen and (max-width: 639px) {
+  body {
+    flex-direction: column;
+    max-width: 320px;
+  }
+  h2 {
+    margin: 0 0 1.25rem 0;
+  }
+} 

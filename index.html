@@ -4,9 +4,10 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="./favicon.png">
   <title>Wordsmith</title>
   <link id="css" rel="stylesheet" type="text/css" href="./style.css" />
-  <!-- <script src="./main.js" async></script> -->
+  <script src="./main.js" async></script>
 </head>
 
 <body>
@@ -21,44 +22,119 @@
     </form>
     <div id="output">
       <p>Top Results</p>
-      <ol>
-        <li>abcdefg</li>
-        <li>abcdefg</li>
-        <li>abcdefg</li>
-        <li>abcdefg</li>
-        <li>abcdefg</li>
-        <li>abcdefg</li>
-        <li>abcdefg</li>
-        <li>abcdefg</li>
-        <li>abcdefg</li>
-        <li>abcdefg</li>
-        <li>abcdefg</li>
-        <li>abcdefg</li>
-        <li>abcdefg</li>
-        <li>abcdefg</li>
-        <li>abcdefg</li>
-      </ol>
+
     </div>
   </section>
 
   <section id="features">
     <h2>Choose word feature</h2>
     <div class="panels">
-      <div class="panel" id="active">         <!-- TEMP CLASS TO DEMO ACTIVE COLORING -->
-        <p>similar meaning, synonym</p>
+      <div class="panel" id="default" data-feat="ml=">
+        <p>similar meaning or synonym</p>
         <p>hope ➔ desire</p>
       </div>
-      <div class="panel">
-        <p>adjectives used to describe</p>
-        <p>hope ➔ fervant</p>
-      </div>
-      <div class="panel">
-        <p>words that rhyme with</p>
-        <p>hope ➔ nope</p>
-      </div>
-      <div class="panel">
+      <div class="panel" data-feat="rel_trg=">
         <p>words strongly associated with</p>
-        <p>hope ➔ only</p>
+        <p>desk ➔ drawer</p>
+      </div>
+      <div class="panel" data-feat="ml=" data-2nd="&sp=">
+        <p>words related and start with letter</p>
+        <select id="relStart">
+          <option value="">letter</option>
+          <option value="a">A</option>
+          <option value="b">B</option>
+          <option value="c">C</option>
+          <option value="d">D</option>
+          <option value="e">E</option>
+          <option value="f">F</option>
+          <option value="g">G</option>
+          <option value="h">H</option>
+          <option value="i">I</option>
+          <option value="j">J</option>
+          <option value="k">K</option>
+          <option value="l">L</option>
+          <option value="m">M</option>
+          <option value="n">N</option>
+          <option value="o">O</option>
+          <option value="p">P</option>
+          <option value="q">Q</option>
+          <option value="r">R</option>
+          <option value="s">S</option>
+          <option value="t">T</option>
+          <option value="u">U</option>
+          <option value="v">V</option>
+          <option value="w">W</option>
+          <option value="x">X</option>
+          <option value="y">Y</option>
+          <option value="z">Z</option>
+        </select>
+        <p>house + [a] ➔ abode</p>
+      </div>
+      <div class="panel" data-feat="ml=" data-2nd="&sp=*">
+        <p>words related and end with letter</p>
+        <select id="relEnd">
+          <option value="">letter</option>
+          <option value="a">A</option>
+          <option value="b">B</option>
+          <option value="c">C</option>
+          <option value="d">D</option>
+          <option value="e">E</option>
+          <option value="f">F</option>
+          <option value="g">G</option>
+          <option value="h">H</option>
+          <option value="i">I</option>
+          <option value="j">J</option>
+          <option value="k">K</option>
+          <option value="l">L</option>
+          <option value="m">M</option>
+          <option value="n">N</option>
+          <option value="o">O</option>
+          <option value="p">P</option>
+          <option value="q">Q</option>
+          <option value="r">R</option>
+          <option value="s">S</option>
+          <option value="t">T</option>
+          <option value="u">U</option>
+          <option value="v">V</option>
+          <option value="w">W</option>
+          <option value="x">X</option>
+          <option value="y">Y</option>
+          <option value="z">Z</option>
+        </select>
+        <p>house + [t] ➔ loft</p>
+      </div>
+      <div class="panel" data-feat="rel_gen=">
+        <p>kind of .. more specifically</p>
+        <p>automobile ➔ taxi</p>
+      </div>
+      <div class="panel" data-feat="rel_spc=">
+        <p>kind of .. more generally</p>
+        <p>taxi ➔ automobile</p>
+      </div>
+      <div class="panel" data-feat="rel_com=">
+        <p>comprises a part of</p>
+        <p>bicycle ➔ handlebar</p>
+      </div>
+      <div class="panel" data-feat="rel_jjb=">
+        <p>adjectives used to describe</p>
+        <p>banana ➔ ripe</p>
+      </div>
+      <div class="panel" data-feat="rel_jjb=" data-2nd="&topics=">
+        <p>adjectives describing .. related to</p>
+        <input type="text" id="relWord" value="">
+        <p>sky + [weather] ➔ stormy</p>
+      </div>
+      <div class="panel" data-feat="rel_jja=">
+        <p>nouns described by adjective</p>
+        <p>red ➔ wine</p>
+      </div>
+      <div class="panel" data-feat="sl=">
+        <p>words that sound like</p>
+        <p>hope ➔ hoop</p>
+      </div>
+      <div class="panel" data-feat="rel_rhy=">
+        <p>words that rhyme with</p>
+        <p>hope ➔ cope</p>
       </div>
     </div>
   </section>
